@@ -1,38 +1,23 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-
+  const date = new Date();
   return (
-    <div className="App">
-      <div>
-        <a href="https://reactjs.org" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
+    <div className="App wrapper">
+      <div className="header">
+        <span>{date.toLocaleString("en-us", { month: "long" })}</span>
       </div>
-      <h1>React + Vite</h1>
-      <h2>On CodeSandbox!</h2>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR.
+      <div className="content">
+        <p className="week-day">
+          {date.toLocaleString("en-us", { weekday: "long" })}
         </p>
-
-        <p>
-          Tip: you can use the inspector button next to address bar to click on
-          components in the preview and open the code in the editor!
+        <p className="day">
+          {date.toLocaleString("en-us", { day: "numeric" })}
+        </p>
+        <p className="year">
+          {date.toLocaleString("en-us", { year: "numeric" })}
         </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
   );
 }
